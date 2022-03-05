@@ -1,9 +1,15 @@
 import express from "express";
+import * as path from "path";
 
 
 const app = express();
 
 app.use(express.static("../client/dist"))
+
+
+app.use(((req, res) => {
+    res.sendFile(path.resolve("../client/dist/index.html"))
+}))
 
 
 
